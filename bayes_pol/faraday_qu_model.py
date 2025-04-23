@@ -51,7 +51,7 @@ class FaradayQUModel(BaseModel):
                 "polarization_fraction": r"P (\%)",
                 "faraday_depth_mean": r"$\langle F \rangle$ (rad m$^{-2}$)",
                 "faraday_depth_fwhm": r"$\Delta F$ (rad m$^{-2}$)",
-                "pol_angle0": r"$\phi_0$ (rad)",
+                "pol_angle0": r"$\chi_0$ (rad)", #pol angle is chi, not phi
             }
         )
 
@@ -88,7 +88,7 @@ class FaradayQUModel(BaseModel):
                 "faraday_depth_mean_norm",
                 mu=0.0,
                 sigma=1.0,
-                initval=np.linspace(-3.0, 3.0, self.n_clouds),
+                #initval=np.linspace(-3.0, 3.0, self.n_clouds),#error in in pymc.model.fgraph:     Cannot convert models with non-default initial_values
                 transform=Ordered(),
                 dims="cloud",
             )
